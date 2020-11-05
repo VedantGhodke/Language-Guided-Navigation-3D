@@ -1,7 +1,6 @@
-# Beyond the Nav-Graph: Vision-and-Language Navigation in Continuous Environments
+# Language Guided Navigation-3D: Vision And Language Navigation in Continuous Environments
 
 This repository is the official implementation of [Beyond the Nav-Graph: Vision-and-Language Navigation in Continuous Environments](https://arxiv.org/abs/2004.02857).
-[[project website](https://jacobkrantz.github.io/vlnce/)]
 
 Vision and Language Navigation in Continuous Environments (VLN-CE) is an instruction-guided navigation task with crowdsourced instructions, realistic environments, and unconstrained agent navigation. This repo is a launching point for interacting with the VLN-CE task and provides a wide array of baseline agents including a Seq2Seq model and a Cross-Modal Attention model. Models can be trained via two imitation learning methods: teacher forcing (behavior cloning) and DAgger. VLN-CE is implemented on top of the Habitat platform.
 
@@ -18,7 +17,7 @@ conda create -n vlnce python3.6
 conda activate vlnce
 ```
 
-### Habitat and Other Dependencies
+### Habitat And Other Dependencies
 
 VLN-CE makes extensive use of the Habitat Simulator and Habitat-Lab developed by FAIR. You will first need to install both [Habitat-Sim](https://github.com/facebookresearch/habitat-sim) and [Habitat-Lab](https://github.com/facebookresearch/habitat-lab/tree/v0.1.5). If you are using conda, Habitat-Sim can easily be installed with:
 
@@ -38,7 +37,7 @@ python -m pip install -r habitat_baselines/rl/ddppo/requirements.txt
 python setup.py develop --all
 ```
 
-We recommend downloading the test scenes and running the example script as described [here](https://github.com/facebookresearch/habitat-lab/blob/v0.1.5/README.md#installation) to ensure the installation of Habitat-Sim and Habitat-Lab was successful. Now you can clone this repository and install the rest of the dependencies:
+I recommend downloading the test scenes and running the example script as described [here](https://github.com/facebookresearch/habitat-lab/blob/v0.1.5/README.md#installation) to ensure the installation of Habitat-Sim and Habitat-Lab was successful. Now you can clone this repository and install the rest of the dependencies:
 
 ```bash
 git clone git@github.com:jacobkrantz/VLN-CE.git
@@ -89,7 +88,7 @@ rm R2R_VLNCE_v1-1_preprocessed.zip
 
 #### Encoder Weights
 
-The learning-based models receive a depth observation at each time step. The depth encoder we use is a ResNet pretrained on a PointGoal navigation task using [DDPPO](https://arxiv.org/abs/1911.00357). In this work, we extract features from the ResNet50 trained on Gibson 2+ from the original paper, whose weights can be downloaded [here](https://github.com/facebookresearch/habitat-lab/tree/master/habitat_baselines/rl/ddppo) (672M). Extract the contents of `ddppo-models.zip` to `data/ddppo-models/{model}.pth`.
+The learning-based models receive a depth observation at each time step. The depth encoder I use is a ResNet pretrained on a PointGoal navigation task using [DDPPO](https://arxiv.org/abs/1911.00357). In this work, I extract features from the ResNet50 trained on Gibson 2+ from the original paper, whose weights can be downloaded [here](https://github.com/facebookresearch/habitat-lab/tree/master/habitat_baselines/rl/ddppo) (672M). Extract the contents of `ddppo-models.zip` to `data/ddppo-models/{model}.pth`.
 
 ## Usage
 
@@ -211,17 +210,3 @@ python -m pip install pre-commit
 pre-commit install
 ```
 
-## Citing
-
-If you use VLN-CE in your research, please cite the following [paper](https://arxiv.org/abs/2004.02857):
-
-```
-@article{krantz2020navgraph,
-    title={Beyond the Nav-Graph: Vision-and-Language Navigation in Continuous Environments},
-    author={Jacob Krantz and Erik Wijmans and Arjun Majumdar and Dhruv Batra and Stefan Lee},
-    year={2020},
-    eprint={2004.02857},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
-}
-```
